@@ -1,5 +1,5 @@
 {
-    "BACKEND_RDS_URL": "http://<public-rds-endpoint>:<port>/test_connection/",
-    "BACKEND_REDIS_URL": "http://<public-redis-endpoint>:<port>/test_connection/"
+    "BACKEND_RDS_URL": "http://16.171.153.166:8001/test_connection/",
+    "BACKEND_REDIS_URL": "http://16.171.153.166:8002/test_connection/"
   }
   
