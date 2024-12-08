@@ -11,8 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Копіюємо весь код в контейнер
 COPY . .
 
-# Відкриваємо порт, на якому буде працювати сервіс
 EXPOSE 8001
 
-# Запускаємо додаток
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
