@@ -5,7 +5,7 @@ on:
         branches:
             - main 
         paths:
-            - backend_rds
+            - backend_rds/**
 
 jobs:
   build-push-ecr:

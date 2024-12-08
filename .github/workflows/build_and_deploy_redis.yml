@@ -5,7 +5,7 @@ on:
         branches:
             - main 
         paths:
-            - backend_redis
+            - backend_redis/**
 
 jobs:
   build-push-ecr:
