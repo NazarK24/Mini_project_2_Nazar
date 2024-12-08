@@ -27,9 +27,10 @@ jobs:
           aws ecr get-login-password --region ${{ vars.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secret.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com
       - name: Build and Push Docker images
         run: |
-          docker build -t backend_redis ./backend_redis
-          docker tag backend_redis:latest ${{ secret.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backend_redis:latest
-          docker push ${{ secret.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backend_redis:latest
+          COMMIT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          docker build -t backend_redis:$COMMIT_SHA ./backend_redis
+          docker tag backend_redis:$COMMIT_SHA ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backend_redis:$COMMIT_SHA
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backend_redis:$COMMIT_SHA
 
   deploy-backend:
     needs: build-push-ecr
