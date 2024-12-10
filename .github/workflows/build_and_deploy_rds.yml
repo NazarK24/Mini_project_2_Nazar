@@ -1,11 +1,11 @@
 name: Deploy and Build RDS
 
 on:
-    push:
-        branches:
-            - main 
-        paths:
-            - backend_rds/**
+  push:
+      branches:
+          - main 
+      paths:
+          - backend_rds/**
 
 jobs:
   build-push-ecr:

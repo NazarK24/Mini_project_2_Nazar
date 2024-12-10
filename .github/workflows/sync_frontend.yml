@@ -1,11 +1,11 @@
 name: Sync and Ivalidation Frontend
 
 on:
-    push:
-        branches:
-            - main 
-        paths:
-            - frontend/**
+  push:
+      branches:
+          - main 
+      paths:
+          - frontend/**
 
 jobs:
     sync-frontend:
