@@ -45,6 +45,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
+      - name: Update Docker Compose File
+        run: |
+          COMMIT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          yq e -i ".services.backend_redis.image = \"${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/backend_redis:$COMMIT_SHA\"" docker-compose.yml
+
       - name: Copy Compose File to EC2
         run: |
           scp -o StrictHostKeyChecking=no ./docker-compose.yml ubuntu@${{ vars.EC2_IP_ADDRESS }}:/home/ubuntu
