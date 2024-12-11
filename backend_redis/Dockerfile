@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Копіюємо весь код в контейнер
+# Копіюємо весь код в контейне
 COPY . .
 
 # Відкриваємо порт, на якому буде працювати с
