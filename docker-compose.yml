@@ -22,7 +22,7 @@ services:
       - redis_data:/data
 
   backend_rds:
-    image: backend_rds:latest
+    image: 148761653308.dkr.ecr.eu-north-1.amazonaws.com/backend_rds:latest
     depends_on:
       - postgres
     ports:
@@ -35,19 +35,19 @@ services:
       - DB_NAME=mydatabase
       - DB_USER=mypostgres
       - DB_PASSWORD=mypassword1
-      - CORS_ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
+      - CORS_ALLOWED_ORIGINS=http://d8s5v5w0sk5z.cloudfront.net
 
   backend_redis:
-    image: backend_redis:latest
+    image: 148761653308.dkr.ecr.eu-north-1.amazonaws.com/backend_redis:latest
     ports:
       - "8002:8002"
     networks:
       - my_network
     environment:
-      - REDIS_HOST=redis_db
+      - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_DB=0
-      - CORS_ALLOWED_ORIGINS=http://localhost:8000,http://127.0.0.1:8000 
+      - CORS_ALLOWED_ORIGINS=http://d8s5v5w0sk5z.cloudfront.net
 
 networks:
   my_network:
