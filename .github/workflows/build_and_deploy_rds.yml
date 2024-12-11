@@ -63,7 +63,7 @@ jobs:
 
       - name: SSH into EC2 and restart Docker containers
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ vars.EC2_IP_ADDRESS }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ vars.EC2_IP_ADDRESS }} << EOF
           cd /home/ubuntu
           aws ecr get-login-password --region ${{ vars.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com
           docker-compose down
