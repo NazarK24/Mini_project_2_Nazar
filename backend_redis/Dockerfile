@@ -4,7 +4,7 @@ FROM python:3.11-slim
 # Встановлюємо робочу директорію всередині контейнера
 WORKDIR /app
 
-# Копіюємо файл requirements.txt і встановлюємо залежності
+# Копіюємо файл requirements.txt і встановлюємо залежност
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 

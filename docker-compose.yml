@@ -20,7 +20,7 @@ services:
     networks:
       - my_network
     environment:
-      - REDIS_HOST=redis
+      - REDIS_HOST=redis-x6wn37.serverless.eun1.cache.amazonaws.com
       - REDIS_PORT=6379
       - REDIS_DB=0
       - CORS_ALLOWED_ORIGINS=http://d8s5v5w0sk5z.cloudfront.net
